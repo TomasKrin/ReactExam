@@ -1,6 +1,7 @@
 import { PropsWithChildren, createContext } from "react";
 
 import { User } from "../types/user";
+import { toast } from "react-hot-toast";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const UserContext = createContext<{
@@ -34,6 +35,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
   const handleLogOut = () => {
     setUser(null);
     setToken(null);
+    toast.success("Successfully Logged Out!");
   };
 
   return (
